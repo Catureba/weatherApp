@@ -1,11 +1,11 @@
 .container {
+  display: flex;
   max-width: 1200px;
   margin: auto;
-  display: flex;
   flex-direction: column;
   gap: 20px 0;
   flex-wrap: wrap;
-  /* align-items: center; */
+  align-items: center;
 }
 .today {
   display: flex;
@@ -44,13 +44,15 @@
 }
 
 .informations-today{
-  
-  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
-  padding: 20px 65px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px 65px;
   border-radius: 15px;
-  flex-wrap: wrap;  
+  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+  width: 1200px;
+  max-width: 1200px;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 .weather{
   display: flex;
@@ -79,21 +81,23 @@
 .registers-box{
   display: flex;
   flex-direction: column;
-  width: 700px;
+  width: 90%;
+  max-width: 700px;
   flex-wrap: wrap;
-  background-color: blue;
-  
 }
 .register{
   display: flex;
   flex-wrap: wrap;
   height: 55px;
   align-items: center;
-  background-color: red;
   justify-content: space-between;
   margin: auto;
+  width: 100%;
 }
-
+.temp-by-register{
+  display: flex;
+  gap: 35px;
+}
 
 @media (max-width: 600px) {
   .today{
