@@ -1,5 +1,5 @@
 import { HttpWeatherAPIService } from './../../services/http-weather-api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MeteorologicalEntity } from 'src/app/model/meteorological/meteorologicalEntity.model';
 
@@ -13,14 +13,20 @@ export class HomeComponent implements OnInit{
   registers!: MeteorologicalEntity[];
   registerToday!: MeteorologicalEntity;
   date:Date = new Date()
+  city: string = "candeias"
 
   ngOnInit(): void {
-    this.getRegisterToday("salvador");
-    this.getListRegistersByCity("salvador");
+    this.getRegisterToday("Salvador");
+    this.getListWithRegistersNextSevenDaysByCity("Salvador");
   }
 
-  getListRegistersByCity(city:string) {
-    this.serviceWeather.GetListByCity(city).subscribe(data =>{
+  findNewCity(city: string){
+    this.getRegisterToday(city);
+    this.getListWithRegistersNextSevenDaysByCity(city);
+  }
+
+  getListWithRegistersNextSevenDaysByCity(city:string) {
+    this.serviceWeather.GetListNextSevenDaysByCity(city).subscribe(data =>{
       data.map((element => {
         element.date = this.replaceDateCompletToSimpleDate(element.date)
       }))

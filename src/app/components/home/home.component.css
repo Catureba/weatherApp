@@ -94,7 +94,10 @@
   margin: auto;
   width: 100%;
 }
-
+.temp-by-register{
+  display: flex;
+  gap: 35px;
+}
 
 @media (max-width: 600px) {
   .today{

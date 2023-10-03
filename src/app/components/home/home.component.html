@@ -7,10 +7,15 @@
       <h2>Search by city</h2>
       <div>
         <span class="input-city">
-          <span class="search">🔍</span>
-          <input type="text" />
+          <span (click)="findNewCity(city)" class="search">🔍</span>
+          <input
+          (change)="findNewCity(city)"
+          id="input-city"
+          type="text"
+          [(ngModel)]="city"
+          />
         </span>
-        <span><img src="../../../assets/Location.png" alt="" /></span>
+        <span (click)="findNewCity(city)"><img src="../../../assets/Location.png" alt="" /></span>
       </div>
     </div>
   </div>

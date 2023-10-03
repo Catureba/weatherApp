@@ -15,11 +15,11 @@ export class HttpWeatherAPIService {
   }
 
   GetListNextSevenDaysByCity(city:string) {
-    return this.http.get('https://localhost:7091/api/Meteorological/listNextSevenDaysByCity/' + city)
+    return this.http.get<MeteorologicalEntity[]>('https://localhost:7091/api/Meteorological/listNextSevenDaysByCity/' + city)
   }
 
   FindById(id: string) {
-    return this.http.get('https://localhost:7091/api/Meteorological/getById/' + id)
+    return this.http.get<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/getById/' + id)
   }
 
   GetListByCity(city: string) {
@@ -31,16 +31,16 @@ export class HttpWeatherAPIService {
   }
 
   PostRegister(register:MeteorologicalEntityDTO) {
-    return this.http.post('https://localhost:7091/api/Meteorological/postRegisterMeteorological', register)
+    return this.http.post<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/postRegisterMeteorological', register)
 
   }
 
   PutRegister(id:string, registerByEdit:MeteorologicalEntityDTO) {
-    return this.http.get('https://localhost:7091/api/Meteorological/editRegisterMeteorologicalById/' + id)
+    return this.http.get<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/editRegisterMeteorologicalById/' + id)
   }
 
   DeleteById(id: string) {
-    return this.http.get('https://localhost:7091/api/Meteorological/deleteRegisterMeteorologicalById/' + id)
+    return this.http.get<String>('https://localhost:7091/api/Meteorological/deleteRegisterMeteorologicalById/' + id)
   }
 
 }
