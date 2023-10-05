@@ -7,54 +7,66 @@
       <h2>Search by city</h2>
       <div>
         <span class="input-city">
-          <span class="search">🔍</span>
-          <input type="text" />
+          <span (click)="findNewCity(city)" class="search">🔍</span>
+          <input
+            (change)="findNewCity(city)"
+            id="input-city"
+            type="text"
+            [(ngModel)]="city"
+          />
         </span>
-        <span><img src="../../../assets/Location.png" alt="" /></span>
+        <span (click)="findNewCity(city)"
+          ><img src="../../../assets/Location.png" alt=""
+        /></span>
       </div>
     </div>
   </div>
   <div class="informations-today">
     <div class="weather">
-      <img src="./../../../assets/cloudy-weather.png" alt="">
+      <img src="./../../../assets/cloudy-weather.png" alt="" />
       <span class="temp-today">
-        <h2 class="max-temp">23°</h2>
+        <h2 class="max-temp">{{ registerToday.max_temperature }}°</h2>
         <span class="separator-temp">/</span>
-        <h2 class="min-temp">17°</h2>
+        <h2 class="min-temp">{{ registerToday.min_temperature }}°</h2>
       </span>
     </div>
     <div class="plus-information">
       <div class="precipitation">
         <img src="./../../../assets/precipitation.png" alt="" />
-        <h3>12%</h3>
+        <h3>{{ registerToday.precipitation }}%</h3>
         <h3>Precipitation</h3>
       </div>
       <div class="humidity">
         <img src="./../../../assets/humidity.png" alt="" />
-        <h3>40%</h3>
+        <h3>{{ registerToday.humidity }}%</h3>
         <h3>Humidity</h3>
       </div>
       <div class="wind-speed">
         <img src="./../../../assets/wind-speed.png" alt="" />
-        <h3>9Km/h</h3>
+        <h3>{{ registerToday.wind_speed }}Km/h</h3>
         <h3>Wind Speed</h3>
       </div>
     </div>
   </div>
   <div class="registers-box">
-    <div class="register">
+    <div class="register" *ngFor="let meteorologicalRegister of registers">
       <div class="date-by-register">
-        <span>31/03/2023</span>
+        <span>{{ meteorologicalRegister.date }}</span>
       </div>
       <div class="weather-by-register">
-        <img src="" alt="">
-        <span>Sun</span>
+        <img src="" alt="" />
+        <span>{{ meteorologicalRegister.weather_day }}</span>
       </div>
       <div class="temp-by-register">
-        <span>+31</span>
-        <span>+51</span>
+        <span>
+          <span *ngIf="meteorologicalRegister.max_temperature > 0">+</span
+          >{{ meteorologicalRegister.max_temperature }}</span
+        >
+        <span>
+          <span *ngIf="meteorologicalRegister.min_temperature > 0">+</span
+          >{{ meteorologicalRegister.min_temperature }}</span
+        >
       </div>
     </div>
   </div>
 </div>
- 
