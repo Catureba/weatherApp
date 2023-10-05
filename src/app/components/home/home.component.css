@@ -7,6 +7,7 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 40px 0 100px;
+  min-height: calc(100vh - 340px);
 }
 .today {
   display: flex;
