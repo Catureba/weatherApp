@@ -9,13 +9,15 @@
         <span class="input-city">
           <span (click)="findNewCity(city)" class="search">🔍</span>
           <input
-          (change)="findNewCity(city)"
-          id="input-city"
-          type="text"
-          [(ngModel)]="city"
+            (change)="findNewCity(city)"
+            id="input-city"
+            type="text"
+            [(ngModel)]="city"
           />
         </span>
-        <span (click)="findNewCity(city)"><img src="../../../assets/Location.png" alt="" /></span>
+        <span (click)="findNewCity(city)"
+          ><img src="../../../assets/Location.png" alt=""
+        /></span>
       </div>
     </div>
   </div>
@@ -41,7 +43,7 @@
       </div>
       <div class="wind-speed">
         <img src="./../../../assets/wind-speed.png" alt="" />
-        <h3>9Km/h</h3>
+        <h3>{{ registerToday.wind_speed }}Km/h</h3>
         <h3>Wind Speed</h3>
       </div>
     </div>

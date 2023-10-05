@@ -98,6 +98,9 @@
   display: flex;
   gap: 35px;
 }
+.alerts{
+  text-align: center;
+}
 
 @media (max-width: 600px) {
   .today{
