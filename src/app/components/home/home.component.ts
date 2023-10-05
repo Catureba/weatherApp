@@ -20,47 +20,11 @@ export class HomeComponent implements OnInit{
 
   }
 
-  findNewCity(city: string){
-    this.getRegisterToday(city);
-    this.getListWithRegistersNextSevenDaysByCity(city);
-    //this.validErrors(this.errorWasThrown);
+  outputRegisterToday(event:any){
+    this.registerToday = event
   }
-  validErrors(errorWasThrown: string[]) {
-    if (this.errorWasThrown.length > 0) {
-      alert(this.errorWasThrown);
-      this.errorWasThrown = [];
-    }
-  }
-
-  getListWithRegistersNextSevenDaysByCity(city:string) {
-    this.serviceWeather.GetListNextSevenDaysByCity(city).subscribe({
-
-      next:(data) => {
-        data.map((element => {
-          element.date = this.replaceDateCompletToSimpleDate(element.date)
-        }))
-        this.registers = data;
-      },
-
-      error:(error) =>{
-        this.errorWasThrown.push("Not Found Registers on next seven days to"+city+"\n");
-      }
-    })
-  }
-
-  getRegisterToday(city:string){
-    this.serviceWeather.GetRegisterTodayByCity(city).subscribe({
-
-      next:(data) => {
-        data.date = this.replaceDateCompletToSimpleDate(data.date)
-        this.registerToday = data;
-      },
-
-      error:(error) => {
-        this.errorWasThrown.push("Not found today register by"+city+"\n");
-      },
-
-    })
+  outputRegisters(event:any){
+    this.registers = event
   }
 
   replaceDateCompletToSimpleDate(date:string){

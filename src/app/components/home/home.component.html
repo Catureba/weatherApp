@@ -3,23 +3,7 @@
     <div class="title_today">
       <h1>Today</h1>
     </div>
-    <div class="box-input-city">
-      <h2>Search by city</h2>
-      <div>
-        <span class="input-city">
-          <span (click)="findNewCity(city)" class="search">🔍</span>
-          <input
-            (change)="findNewCity(city)"
-            id="input-city"
-            type="text"
-            [(ngModel)]="city"
-          />
-        </span>
-        <span (click)="findNewCity(city)"
-          ><img src="../../../assets/Location.png" alt=""
-        /></span>
-      </div>
-    </div>
+    <app-input-find-by-city  (outputRegisters)="outputRegisters($event)" (outputRegisterToday)="outputRegisterToday($event)"></app-input-find-by-city>
   </div>
   <div class="informations-today">
     <div class="weather">
@@ -51,7 +35,7 @@
   <div class="registers-box">
     <div class="register" *ngFor="let meteorologicalRegister of registers">
       <div class="date-by-register">
-        <span>{{ meteorologicalRegister.date }}</span>
+        <span>{{ replaceDateCompletToSimpleDate(meteorologicalRegister.date) }}</span>
       </div>
       <div class="weather-by-register">
         <img src="" alt="" />
