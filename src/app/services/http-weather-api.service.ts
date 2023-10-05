@@ -14,7 +14,7 @@ export class HttpWeatherAPIService {
     return this.http.get<MeteorologicalEntity[]>('https://localhost:7091/api/Meteorological/FindAll')
   }
 
-  GetListNextSevenDaysByCity(city:string) {
+  GetListNextSevenDaysByCity(city:string): Observable<MeteorologicalEntity[]> {
     return this.http.get<MeteorologicalEntity[]>('https://localhost:7091/api/Meteorological/listNextSevenDaysByCity/' + city)
   }
 
@@ -26,13 +26,12 @@ export class HttpWeatherAPIService {
     return this.http.get<MeteorologicalEntity[]>('https://localhost:7091/api/Meteorological/listByCity/' + city)
   }
 
-  GetRegisterTodayByCity(city:string) {
+  GetRegisterTodayByCity(city:string): Observable<MeteorologicalEntity> {
     return this.http.get<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/getRegisterByCityToday/' + city)
   }
 
   PostRegister(register:MeteorologicalEntityDTO) {
     return this.http.post<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/postRegisterMeteorological', register)
-
   }
 
   PutRegister(id:string, registerByEdit:MeteorologicalEntityDTO) {

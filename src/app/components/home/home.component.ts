@@ -10,34 +10,56 @@ import { MeteorologicalEntity } from 'src/app/model/meteorological/meteorologica
 })
 export class HomeComponent implements OnInit{
   constructor(private serviceWeather: HttpWeatherAPIService) { }
-  registers!: MeteorologicalEntity[];
-  registerToday!: MeteorologicalEntity;
+  registers: MeteorologicalEntity[] = [  ] ;
+  registerToday: MeteorologicalEntity = new MeteorologicalEntity;
+  city: string = ""
+  errorWasThrown: string[] = []
   date:Date = new Date()
-  city: string = "candeias"
 
   ngOnInit(): void {
-    this.getRegisterToday("Salvador");
-    this.getListWithRegistersNextSevenDaysByCity("Salvador");
+
   }
 
   findNewCity(city: string){
     this.getRegisterToday(city);
     this.getListWithRegistersNextSevenDaysByCity(city);
+    //this.validErrors(this.errorWasThrown);
+  }
+  validErrors(errorWasThrown: string[]) {
+    if (this.errorWasThrown.length > 0) {
+      alert(this.errorWasThrown);
+      this.errorWasThrown = [];
+    }
   }
 
   getListWithRegistersNextSevenDaysByCity(city:string) {
-    this.serviceWeather.GetListNextSevenDaysByCity(city).subscribe(data =>{
-      data.map((element => {
-        element.date = this.replaceDateCompletToSimpleDate(element.date)
-      }))
-      this.registers = data!;
+    this.serviceWeather.GetListNextSevenDaysByCity(city).subscribe({
+
+      next:(data) => {
+        data.map((element => {
+          element.date = this.replaceDateCompletToSimpleDate(element.date)
+        }))
+        this.registers = data;
+      },
+
+      error:(error) =>{
+        this.errorWasThrown.push("Not Found Registers on next seven days to"+city+"\n");
+      }
     })
   }
 
   getRegisterToday(city:string){
-    this.serviceWeather.GetRegisterTodayByCity(city).subscribe(data =>{
-      data.date = this.replaceDateCompletToSimpleDate(data.date)
-      this.registerToday = data!;
+    this.serviceWeather.GetRegisterTodayByCity(city).subscribe({
+
+      next:(data) => {
+        data.date = this.replaceDateCompletToSimpleDate(data.date)
+        this.registerToday = data;
+      },
+
+      error:(error) => {
+        this.errorWasThrown.push("Not found today register by"+city+"\n");
+      },
+
     })
   }
 
