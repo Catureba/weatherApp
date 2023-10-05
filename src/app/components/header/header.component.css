@@ -1,0 +1,29 @@
+header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+nav{
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 95%;
+  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+  border-radius: 15px;
+}
+ul{
+  display: flex;
+  justify-content: space-between;
+  min-width: 400px;
+  padding: 0 0 0 65px;
+}
+li{
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  list-style-type: none;
+  cursor: pointer;
+}
+.active{
+  border-bottom: 2px solid white;
+}
