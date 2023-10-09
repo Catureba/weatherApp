@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit{
   city: string = ""
   errorWasThrown: string[] = []
   date:Date = new Date()
+  styleType:string = "style1"
 
   ngOnInit(): void {
 

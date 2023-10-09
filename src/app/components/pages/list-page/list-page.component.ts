@@ -11,6 +11,7 @@ export class ListPageComponent {
   constructor(private service: HttpWeatherAPIService) {}
   city: string = '';
   registers: MeteorologicalEntity[] = [];
+  styleType:string = "style2"
 
   ngOnInit():void{
     this.findAll()
