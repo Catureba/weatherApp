@@ -1,8 +1,8 @@
 <div class="box-input-city">
-  <h2>Search by city</h2>
-  <div>
+  <h2>{{ title }}</h2>
+  <div class="{{ styleType }}">
     <span class="input-city">
-      <span (click)="newSearch(city)" class="search">🔍</span>
+      <span (click)="newSearch(city)" class="inputByCityFirstIcon"></span>
       <input
         (change)="newSearch(city)"
         id="input-city"
@@ -10,8 +10,6 @@
         [(ngModel)]="city"
       />
     </span>
-    <span (click)="newSearch(city)"
-      ><img src="../../../assets/Location.png" alt=""
-    /></span>
+    <span (click)="newSearch(city)" class="inputByCityLastIcon"></span>
   </div>
 </div>
