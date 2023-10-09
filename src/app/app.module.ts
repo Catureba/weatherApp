@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { InputFindByCityComponent } from './components/input-find-by-city/input-find-by-city.component';
+import { ListPageComponent } from './components/pages/list-page/list-page.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { InputFindByCityComponent } from './components/input-find-by-city/input-
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    InputFindByCityComponent
+    InputFindByCityComponent,
+    ListPageComponent
 
   ],
   imports: [
