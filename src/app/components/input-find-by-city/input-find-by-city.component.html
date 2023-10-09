@@ -2,15 +2,15 @@
   <h2>Search by city</h2>
   <div>
     <span class="input-city">
-      <span (click)="findNewCity(city)" class="search">🔍</span>
+      <span (click)="newSearch(city)" class="search">🔍</span>
       <input
-        (change)="findNewCity(city)"
+        (change)="newSearch(city)"
         id="input-city"
         type="text"
         [(ngModel)]="city"
       />
     </span>
-    <span (click)="findNewCity(city)"
+    <span (click)="newSearch(city)"
       ><img src="../../../assets/Location.png" alt=""
     /></span>
   </div>

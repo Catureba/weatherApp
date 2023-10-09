@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { ListPageComponent } from './components/pages/list-page/list-page.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'footer', component: FooterComponent },
+  { path: 'list', component: ListPageComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,52 @@
+.conteiner{
+  max-width: 1300px;
+  margin: auto;
+  padding: 40px 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  min-height: calc(100vh - 320px);
+}
+.list-menu{
+  font-size: 24px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.register{
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(149, 125, 205, 0.29) 0%, #523D7F 100%);
+  border-radius: 15px;
+  height: 55px;
+  padding: 0 20px;
+  align-items: center;
+}
+.registers{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.action{
+  display: flex;
+  gap: 2px;
+}
+.action span{
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+}
+.edit-icon{
+  background-image: url("../../../../assets/edit-icon.png");
+}
+.delete-icon{
+  background-image: url("../../../../assets/trash-icon.png");
+}

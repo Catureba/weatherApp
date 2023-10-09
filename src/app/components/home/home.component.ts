@@ -20,17 +20,47 @@ export class HomeComponent implements OnInit{
 
   }
 
-  outputRegisterToday(event:any){
-    this.registerToday = event
+  outPutCity(event:any){
+    this.city = event
+    this.findNewCity(event)
   }
-  outputRegisters(event:any){
-    this.registers = event
+
+  findNewCity(city:string){
+    this.getListWithRegistersNextSevenDaysByCity(city)
+    this.getRegisterToday(city)
   }
 
   replaceDateCompletToSimpleDate(date:string){
     date = date.substring(0,10)
     date = date.replace(/-/g,"/")
     return date
+  }
+
+  getListWithRegistersNextSevenDaysByCity(city:string) {
+    this.serviceWeather.GetListNextSevenDaysByCity(city).subscribe({
+
+      next:(data) => {
+        this.registers = data
+      },
+
+      error:(error) =>{
+        console.log(error);
+      }
+    })
+  }
+
+  getRegisterToday(city:string){
+    this.serviceWeather.GetRegisterTodayByCity(city).subscribe({
+
+      next:(data) => {
+        this.registerToday = data;
+      },
+
+      error:(error) => {
+        console.log(error);
+      },
+
+    })
   }
 
 }
