@@ -1,4 +1,4 @@
-import { HttpWeatherAPIService } from './../../services/http-weather-api.service';
+import { HttpWeatherAPIService } from './../../../services/http-weather-api.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MeteorologicalEntity } from 'src/app/model/meteorological/meteorologicalEntity.model';
