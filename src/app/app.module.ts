@@ -22,7 +22,6 @@ import { HomeComponent } from './components/pages/home/home.component';
     InputFindByCityComponent,
     ListPageComponent,
     PostComponent
-
   ],
   imports: [
     BrowserModule,

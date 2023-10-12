@@ -14,8 +14,8 @@
       </div>
       <div class="registers">
         <div class="register" *ngFor="let register of registers">
-          <div class="city">{{ register.city}}</div>
-          <div class="date">{{ replaceDateCompletToSimpleDate(register.date) }}</div>
+          <div class="city"><span>{{ register.city}}</span></div>
+          <div class="date"><span>{{ replaceDateCompletToSimpleDate(register.date) }}</span></div>
           <div class="action">
             <span class="edit-icon"></span>
             <span class="delete-icon" (click)="deleteByID(register.id)"></span>
