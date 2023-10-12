@@ -1,41 +1,69 @@
 <div class="conteiner">
   <h1>Meteorological record</h1>
-  <form action="">
+  <form class="form" action="">
     <section class="form-top">
-      <label for="">Weather</label>
-      <input
-        type="text"
-        class="basicInputStyle"
-        placeholder="salvador"
-        id="weather"
-      />
-      <label for="">Date</label>
-      <input type="date" class="basicInputStyle" id="date" />
+      <div class="input-city div-input">
+        <label for="">City</label>
+        <input type="text" class="basic-input-style" value="Madre de deus" id="city" />
+      </div>
+      <div class="input-date div-input">
+        <label for="">Date</label>
+        <input type="date" class="basic-input-style" id="date" />
+      </div>
     </section>
     <section class="form-bottom">
 
       <div class="col-1">
-        <div class="weather">
+        <div class="weather div-input">
           <label for="">Weather</label>
-          <select  id="weatherSelectMorning">
-            <option value="Rainy" selected></option>
-            <option value="Sunny"></option>
-          </select>
+          <div class="selects">
+            <select class="basic-input-style" id="weatherSelectMorning">
+              <option value="Rainy" selected>Rainy</option>
+              <option value="Sunny">Sunny</option>
+            </select>
 
-          <select  id="weatherSelectMorning">
-            <option value="Rainy" selected></option>
-            <option value="Sunny"></option>
-          </select>
-
+            <select class="basic-input-style" id="weatherSelectMorning">
+              <option value="Rainy">Rainy</option>
+              <option value="Sunny" selected>Sunny</option>
+            </select>
+          </div>
+        </div>
+        <div class="turn div-input">
+          <label for="">Turn</label>
+          <div class="selects">
+            <span class="basic-input-style">Morning</span>
+            <span class="basic-input-style">Evening</span>
+          </div>
         </div>
       </div>
 
       <div class="col-2">
+        <div class="line-1">
+          <div class="input-max-temperature div-input">
+            <label for="">Maximum temperature</label>
+            <input type="number" class="basic-input-style" id="inputMaximumTemperature">
+          </div>
+          <div class="input-min-temperature div-input">
+            <label for="">Minimum temperature</label>
+            <input type="number" class="basic-input-style" id="inputMinimumTemperature">
+          </div>
+        </div>
+        <div class="line-2">
+          <div class="input-precipitation div-input">
+            <label for="">Precipitation</label>
+            <input type="number" class="basic-input-style" id="inputPrecipitation">
+          </div>
 
-      </div>
+          <div class="input-humidity div-input">
+            <label for="">Humidity</label>
+            <input type="number" class="basic-input-style" id="inputHumidity ">
+          </div>
 
-      <div class="col-3">
-
+          <div class="input-wind-speed div-input">
+            <label for="">Wind speed</label>
+            <input type="number" class="basic-input-style" id="inputWindSpeed">
+          </div>
+        </div>
       </div>
 
     </section>
