@@ -1,14 +1,14 @@
 <div class="conteiner">
   <h1>Meteorological record</h1>
-  <div class="form">
+  <form class="form">
     <section class="form-top">
       <div class="input-city div-input">
         <label for="">City</label>
-        <input type="text" [(ngModel)]="formData.city" class="basic-input-style" />
+        <input required type="text" [(ngModel)]="formData.city" class="basic-input-style" />
       </div>
       <div class="input-date div-input">
         <label for="">Date</label>
-        <input type="date" [(ngModel)]="formData.date" class="basic-input-style" id="date" />
+        <input required type="date" [(ngModel)]="formData.date" class="basic-input-style" id="date" />
       </div>
     </section>
     <section class="form-bottom">
@@ -41,27 +41,45 @@
         <div class="line-1">
           <div class="input-max-temperature div-input">
             <label for="">Maximum temperature</label>
-            <input type="number" [(ngModel)]="formData.max_temperature" class="basic-input-style input-small" id="inputMaximumTemperature">
+            <div class="input-decoration">
+              <input required type="number" [(ngModel)]="formData.max_temperature" class="basic-input-style input-small" id="inputMaximumTemperature">
+              <span>%</span>
+            </div>
+            
           </div>
           <div class="input-min-temperature div-input">
-            <label for="">Minimum temperature</label>
-            <input type="number" [(ngModel)]="formData.min_temperature" class="basic-input-style input-small" id="inputMinimumTemperature">
+            <label for="">Minimum temperature</label><div class="input-decoration">
+              <input required type="number" [(ngModel)]="formData.min_temperature" class="basic-input-style input-small" id="inputMinimumTemperature">
+              <span>%</span>
+            </div>
+            
           </div>
         </div>
         <div class="line-2">
           <div class="input-precipitation div-input">
             <label for="">Precipitation</label>
-            <input type="number" [(ngModel)]="formData.precipitation" class="basic-input-style input-small" id="inputPrecipitation">
+            <div class="input-decoration">
+              <input required type="number" [(ngModel)]="formData.precipitation" class="basic-input-style input-small" id="inputPrecipitation">
+              <span>%</span>
+            </div>
+            
           </div>
 
           <div class="input-humidity div-input">
             <label for="">Humidity</label>
-            <input type="number" [(ngModel)]="formData.humidity" class="basic-input-style input-small" id="inputHumidity ">
+            <div class="input-decoration">
+              <input required type="number" [(ngModel)]="formData.humidity" class="basic-input-style input-small" id="inputHumidity ">
+              <span>%</span>
+            </div>
+            
           </div>
 
           <div class="input-wind-speed div-input">
             <label for="">Wind speed</label>
-            <input type="number" [(ngModel)]="formData.wind_speed" class="basic-input-style input-small" id="inputWindSpeed">
+            <div class="input-decoration">
+              <input required type="number" [(ngModel)]="formData.wind_speed" class="basic-input-style input-small" id="inputWindSpeed">
+              <span>%</span>
+            </div>
           </div>
         </div>
       </div>
@@ -71,5 +89,5 @@
       <button class="button-style" type="reset" routerLink="/" >Cancel</button>
       <button class="button-style" (click)="onSubmit()" type="submit">Save</button>
     </section>
-  </div>
+  </form>
 </div>

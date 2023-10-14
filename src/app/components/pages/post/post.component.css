@@ -62,16 +62,28 @@ label {
     font-size: 20px;
     font-weight: 400;
     height: 57px;
-    padding: 0 10px;
+    padding: 0 0 0 10px;
     border-radius: 15px;
     display: flex;
     align-items: center;
     border: none;
     box-sizing: border-box;
 }
-
-.input-small {
+.input-decoration{
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
     max-width: 74px;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+.input-decoration span{
+    /* background-color: blue; */
+}
+.input-small {
+    display: flex;
+    text-align: right;
+    max-width: 44px;
 }
 
 .weather select {
@@ -82,6 +94,9 @@ label {
     background-color: #523D7F;
     color: white;
     border: none;
+}
+.turn span{
+ padding: 0 10px;
 }
 
 .div-input {

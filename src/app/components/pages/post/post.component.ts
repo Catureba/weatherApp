@@ -52,7 +52,6 @@ export class PostComponent {
         
       },
       error:(error) => {
-        alert(error)
         console.log(error)
       },
     })
