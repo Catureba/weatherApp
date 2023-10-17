@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit{
   errorWasThrown: string[] = []
   date:Date = new Date()
   styleType:string = "style1"
+  alertNotFound:boolean = false
 
   ngOnInit(): void {
 
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit{
 
       error:(error) =>{
         console.log(error);
+        this.alertNotFound = true
       }
     })
   }
@@ -59,6 +61,7 @@ export class HomeComponent implements OnInit{
 
       error:(error) => {
         console.log(error);
+        this.alertNotFound = true
       },
 
     })

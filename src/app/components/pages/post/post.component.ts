@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { MeteorologicalEntityDTO } from 'src/app/model/meteorological/meteorologicalDTO.model';
 import { HttpWeatherAPIService } from 'src/app/services/http-weather-api.service';
 
@@ -8,57 +9,52 @@ import { HttpWeatherAPIService } from 'src/app/services/http-weather-api.service
   styleUrls: ['./post.component.css']
 })
 export class PostComponent {
-  constructor(private service: HttpWeatherAPIService) { }
+//  constructor(private service: HttpWeatherAPIService) { }
 
-  // formData: MeteorologicalEntityDTO = {
-  //   city: '',
-  //   date: '',
-  //   max_temperature: 0,
-  //   min_temperature: 0,
-  //   precipitation: 0,
-  //   humidity: 0,
-  //   wind_speed: 0,
-  //   weather_day: '',
-  //   weather_night: '',
-  // }
+myForm: FormGroup; // Crie uma propriedade para o seu formulário
 
-  formData: {
-    city: string,
-    date: string,
-    weather_day: string,
-    weather_night: string,
-    max_temperature: number,
-    min_temperature: number,
-    precipitation: number,
-    humidity: number,
-    wind_speed: number
-  } = {
-      city: '',
-      date: '',
-      weather_day: 'Rainy',
-      weather_night: 'Sunny',
-      max_temperature: 0,
-      min_temperature: 0,
-      precipitation: 0,
-      humidity: 0,
-      wind_speed: 0
-    };
+  formData = {
+    city: '',
+    date: '',
+    weather_day: 'Rainy',
+    weather_night: 'Sunny',
+    max_temperature: 0,
+    min_temperature: 0,
+    precipitation: 0,
+    humidity: 0,
+    wind_speed: 0
+  };
+
+  constructor(private fb: FormBuilder, private service: HttpWeatherAPIService) {
+    // Use o FormBuilder para criar o formulário com base no objeto formData
+    this.myForm = this.fb.group({
+      city: this.formData.city,
+      date: this.formData.date,
+      weather_day: this.formData.weather_day,
+      weather_night: this.formData.weather_night,
+      max_temperature: this.formData.max_temperature,
+      min_temperature: this.formData.min_temperature,
+      precipitation: this.formData.precipitation,
+      humidity: this.formData.humidity,
+      wind_speed: this.formData.wind_speed
+    });
+  }
 
   onSubmit() {
-    this.formData.date += 'T13:32:37.592Z' 
+    this.formData.date += 'T13:32:37.592Z'
     this.service.PostRegister(this.formData).subscribe({
       next:(data) =>{
         alert("Your register work!")
-        
+
       },
       error:(error) => {
         console.log(error)
       },
     })
     console.table(this.formData);
-    
+
   }
 
-  
+
 
 }

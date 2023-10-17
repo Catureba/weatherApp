@@ -39,8 +39,8 @@ export class HttpWeatherAPIService {
     return this.http.get<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/editRegisterMeteorologicalById/' + id)
   }
 
-  DeleteById(id: string) {
-    return this.http.get<String>('https://localhost:7091/api/Meteorological/deleteRegisterMeteorologicalById/' + id)
+  DeleteById(id: string): Observable<string> {
+    return this.http.get<string>('https://localhost:7091/api/Meteorological/deleteRegisterMeteorologicalById/' + id)
   }
 
 }
