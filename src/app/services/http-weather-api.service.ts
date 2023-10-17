@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MeteorologicalEntity } from '../model/meteorological/meteorologicalEntity.model';
 import { MeteorologicalEntityDTO } from '../model/meteorological/meteorologicalDTO.model';
 import { Observable } from 'rxjs/internal/Observable';
@@ -18,11 +18,11 @@ export class HttpWeatherAPIService {
     return this.http.get<MeteorologicalEntity[]>('https://localhost:7091/api/Meteorological/listNextSevenDaysByCity/' + city)
   }
 
-  FindById(id: string) {
+  FindById(id: string): Observable<MeteorologicalEntity> {
     return this.http.get<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/getById/' + id)
   }
 
-  GetListByCity(city: string) {
+  GetListByCity(city: string): Observable<MeteorologicalEntity[]> {
     return this.http.get<MeteorologicalEntity[]>('https://localhost:7091/api/Meteorological/listByCity/' + city)
   }
 
@@ -30,16 +30,17 @@ export class HttpWeatherAPIService {
     return this.http.get<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/getRegisterByCityToday/' + city)
   }
 
-  PostRegister(register:MeteorologicalEntityDTO) {
-    return this.http.post<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/postRegisterMeteorological', register)
+  PostRegister(register:MeteorologicalEntityDTO): Observable<MeteorologicalEntity> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/postRegisterMeteorological', register, { headers })
   }
 
-  PutRegister(id:string, registerByEdit:MeteorologicalEntityDTO) {
+  PutRegister(id:string, registerByEdit:MeteorologicalEntityDTO): Observable<MeteorologicalEntity> {
     return this.http.get<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/editRegisterMeteorologicalById/' + id)
   }
 
-  DeleteById(id: string) {
-    return this.http.get<String>('https://localhost:7091/api/Meteorological/deleteRegisterMeteorologicalById/' + id)
+  DeleteById(id: string): Observable<string> {
+    return this.http.get<string>('https://localhost:7091/api/Meteorological/deleteRegisterMeteorologicalById/' + id)
   }
 
 }

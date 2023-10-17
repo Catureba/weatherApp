@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MeteorologicalEntity } from 'src/app/model/meteorological/meteorologicalEntity.model';
-import { HttpWeatherAPIService } from 'src/app/services/http-weather-api.service';
 
 @Component({
   selector: 'app-input-find-by-city',

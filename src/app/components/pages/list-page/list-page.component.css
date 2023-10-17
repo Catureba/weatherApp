@@ -7,12 +7,22 @@
   gap: 50px;
   min-height: calc(100vh - 320px);
 }
+.findSection{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .list-menu{
   font-size: 24px;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+}
+.registers{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .register{
   font-size: 20px;
@@ -25,11 +35,14 @@
   padding: 0 20px;
   align-items: center;
 }
-.registers{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.register div{
+  min-width: 33%;
 }
+.date{
+  display: flex;
+  justify-content: center;
+}
+
 .list{
   display: flex;
   flex-direction: column;
@@ -37,12 +50,14 @@
 }
 .action{
   display: flex;
+  justify-content: right;
   gap: 2px;
 }
 .action span{
   display: inline-block;
   height: 36px;
   width: 36px;
+  cursor: pointer;
 }
 .edit-icon{
   background-image: url("../../../../assets/edit-icon.png");
