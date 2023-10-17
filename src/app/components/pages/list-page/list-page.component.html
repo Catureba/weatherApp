@@ -1,0 +1,27 @@
+<div class="conteiner">
+  <section class="findSection">
+    <h1>List of Cities</h1>
+    <app-input-find-by-city (outPutCity)="newSearch($event)"
+    [styleType]="styleType"
+    ></app-input-find-by-city>
+  </section>
+  <section>
+    <div class="list">
+      <div class="list-menu">
+        <span>City</span>
+        <span>Date</span>
+        <span>Action</span>
+      </div>
+      <div class="registers">
+        <div class="register" *ngFor="let register of registers">
+          <div class="city"><span>{{ register.city}}</span></div>
+          <div class="date"><span>{{ replaceDateCompletToSimpleDate(register.date) }}</span></div>
+          <div class="action">
+            <span class="edit-icon"></span>
+            <span class="delete-icon" (click)="deleteByID(register.id)"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

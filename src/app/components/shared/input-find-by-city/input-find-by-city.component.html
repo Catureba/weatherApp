@@ -1,0 +1,15 @@
+<div class="box-input-city">
+  <h2>{{ title }}</h2>
+  <div class="{{ styleType }}">
+    <span class="input-city">
+      <span (click)="newSearch(city)" class="inputByCityFirstIcon"></span>
+      <input
+        (change)="newSearch(city)"
+        id="input-city"
+        type="text"
+        [(ngModel)]="city"
+      />
+    </span>
+    <span (click)="newSearch(city)" class="inputByCityLastIcon"></span>
+  </div>
+</div>

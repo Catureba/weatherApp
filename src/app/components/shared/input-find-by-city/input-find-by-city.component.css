@@ -24,6 +24,22 @@
   font-size: larger;
   padding-left: 15px;
 }
-.search{
-  font-size: 26px;
+
+.style1 .inputByCityFirstIcon{
+  width: 23px;
+  height: 21px;
+  background-image: url(../../../../assets/search-white.png);
+}
+.style1 .inputByCityLastIcon{
+  width: 47px;
+  height: 45px;
+  background-image: url(../../../../assets/Location.png);
+} 
+.style2 .inputByCityFirstIcon{
+background-image: none;
+}
+.style2 .inputByCityLastIcon{
+  width: 45px;
+  height: 45px;
+  background-image: url(../../../../assets/search-blue.png);
 }
