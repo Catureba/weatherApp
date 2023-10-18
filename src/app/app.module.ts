@@ -11,6 +11,7 @@ import { InputFindByCityComponent } from './components/shared/input-find-by-city
 import { ListPageComponent } from './components/pages/list-page/list-page.component';
 import { PostComponent } from './components/pages/post/post.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { EditComponent } from './components/pages/edit/edit.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HomeComponent } from './components/pages/home/home.component';
     FooterComponent,
     InputFindByCityComponent,
     ListPageComponent,
-    PostComponent
+    PostComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

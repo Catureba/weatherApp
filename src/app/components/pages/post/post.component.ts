@@ -9,9 +9,7 @@ import { HttpWeatherAPIService } from 'src/app/services/http-weather-api.service
   styleUrls: ['./post.component.css']
 })
 export class PostComponent {
-//  constructor(private service: HttpWeatherAPIService) { }
-
-myForm: FormGroup; // Crie uma propriedade para o seu formulário
+myForm: FormGroup;
 
   formData = {
     city: '',
@@ -26,7 +24,6 @@ myForm: FormGroup; // Crie uma propriedade para o seu formulário
   };
 
   constructor(private fb: FormBuilder, private service: HttpWeatherAPIService) {
-    // Use o FormBuilder para criar o formulário com base no objeto formData
     this.myForm = this.fb.group({
       city: this.formData.city,
       date: this.formData.date,
@@ -54,7 +51,4 @@ myForm: FormGroup; // Crie uma propriedade para o seu formulário
     console.table(this.formData);
 
   }
-
-
-
 }

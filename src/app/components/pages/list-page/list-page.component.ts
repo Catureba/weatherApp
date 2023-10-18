@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { find } from 'rxjs';
 import { MeteorologicalEntity } from 'src/app/model/meteorological/meteorologicalEntity.model';
 import { HttpWeatherAPIService } from 'src/app/services/http-weather-api.service';
 
@@ -12,20 +13,29 @@ export class ListPageComponent {
   city: string = '';
   registers: MeteorologicalEntity[] = [];
   styleType:string = "style2"
+  page:number=0
 
   ngOnInit():void{
     this.findAll()
   }
 
   findAll(){
-    this.service.GetAll().subscribe({
+    this.service.GetRegistersWithPagination(undefined,this.page).subscribe({
       next:(data) =>{
-        this.registers = data
+        this.registers = data.data
       },
       error:(error) => {
         console.log(error)
       },
     })
+  }
+  nextPage(){
+    this.page++
+    this.findAll()
+  }
+  previous(){
+    this.page--
+    this.findAll()
   }
 
   newSearch(city: any) {
@@ -51,8 +61,14 @@ export class ListPageComponent {
     return date;
   }
   deleteByID(id:string){
-    this.service.DeleteById(id)
-    console.log(id);
-
+    this.service.DeleteById(id).subscribe({
+      next: (data) => {
+        alert("One register was deleted")
+      },
+      error: (error) => {
+        if(error.error.text == "Deleted the Meteorological register!") alert("Deleted the Meteorological register!")
+        else alert("error to try delete this register, try again later!")
+      },
+    });
   }
 }
