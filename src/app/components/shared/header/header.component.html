@@ -1,9 +1,9 @@
 <header>
   <nav>
     <ul>
-      <li class="{{ liStyles.liHome }}" routerLink="/">Home</li>
-      <li class="{{ liStyles.liPost }}" routerLink="/post">Post</li>
-      <li class="{{ liStyles.liList }}" routerLink="/list"> List</li>
+      <li class="{{ liStyles.liHome }}" (click)="activeStyle('home')" routerLink="/">Home</li>
+      <li class="{{ liStyles.liPost }}" (click)="activeStyle('post')" routerLink="/post">Post</li>
+      <li class="{{ liStyles.liList }}" (click)="activeStyle('list')" routerLink="/list"> List</li>
     </ul>
   </nav>
 </header>
