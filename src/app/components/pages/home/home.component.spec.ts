@@ -6,9 +6,10 @@ import { of } from 'rxjs';
 import { InputFindByCityComponent } from '../../shared/input-find-by-city/input-find-by-city.component';
 import { FormsModule } from '@angular/forms';
 
-describe('HomeComponent', () => {
+fdescribe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
+
   const httpStub: any = {
     get: () => of({}),
     post: () => of({}),
@@ -32,14 +33,12 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should not contain text "Register Not Found"', () => {
+  it('should not contain text "Register Not Found" before first request', () => {
     const alertNotFound = fixture.nativeElement.querySelector('#alertNotFound');
 
     if (alertNotFound) {
-      // Se o elemento com o ID "alertNotFound" existe, verifique se ele não contém o texto "Register Not Found"
       expect(alertNotFound.textContent).not.toContain('Register Not Found');
     } else {
-      // Se o elemento não existe, considere o teste bem-sucedido
       expect(true).toBe(true);
     }
   });

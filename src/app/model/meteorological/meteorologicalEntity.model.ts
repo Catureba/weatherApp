@@ -1,7 +1,7 @@
 export class MeteorologicalEntity {
   id!: string;
   date!: string;
-  city!: number;
+  city!: string;
   max_temperature!: number;
   min_temperature!: number;
   precipitation!: number;

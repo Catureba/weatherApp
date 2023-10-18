@@ -51,8 +51,14 @@ export class ListPageComponent {
     return date;
   }
   deleteByID(id:string){
-    this.service.DeleteById(id)
-    console.log(id);
-
+    this.service.DeleteById(id).subscribe({
+      next: (data) => {
+        alert("One register was deleted")
+      },
+      error: (error) => {
+        if(error.error.text == "Deleted the Meteorological register!") alert("Deleted the Meteorological register!")
+        else alert("error to try delete this register, try again later!")
+      },
+    });
   }
 }

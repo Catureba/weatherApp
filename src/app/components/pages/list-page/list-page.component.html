@@ -17,7 +17,7 @@
           <div class="city"><span>{{ register.city}}</span></div>
           <div class="date"><span>{{ replaceDateCompletToSimpleDate(register.date) }}</span></div>
           <div class="action">
-            <span class="edit-icon"></span>
+            <span class="edit-icon" routerLink="/edit/{{register.id}}" ></span>
             <span class="delete-icon" (click)="deleteByID(register.id)"></span>
           </div>
         </div>

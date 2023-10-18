@@ -10,6 +10,7 @@ import { MeteorologicalEntity } from 'src/app/model/meteorological/meteorologica
 })
 export class HomeComponent implements OnInit{
   constructor(private serviceWeather: HttpWeatherAPIService) { }
+  
   registers: MeteorologicalEntity[] = [  ] ;
   registerToday: MeteorologicalEntity = new MeteorologicalEntity;
   city: string = ""

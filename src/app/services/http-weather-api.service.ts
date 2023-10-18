@@ -36,11 +36,13 @@ export class HttpWeatherAPIService {
   }
 
   PutRegister(id:string, registerByEdit:MeteorologicalEntityDTO): Observable<MeteorologicalEntity> {
-    return this.http.get<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/editRegisterMeteorologicalById/' + id)
+
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put<MeteorologicalEntity>('https://localhost:7091/api/Meteorological/editRegisterMeteorologicalById/' + id, registerByEdit, { headers })
   }
 
   DeleteById(id: string): Observable<string> {
-    return this.http.get<string>('https://localhost:7091/api/Meteorological/deleteRegisterMeteorologicalById/' + id)
+    return this.http.delete<string>('https://localhost:7091/api/Meteorological/deleteRegisterMeteorologicalById/' + id)
   }
 
 }
