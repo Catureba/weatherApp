@@ -24,4 +24,11 @@
       </div>
     </div>
   </section>
+  <section>
+    <div class="pagination">
+      <span (click)="previousPage()">&lt;</span>
+      <h2>Page  {{ currentPage }}  from  {{ totalPages }}</h2>
+      <span (click)="nextPage()">&gt;</span>
+    </div>
+  </section>
 </div>

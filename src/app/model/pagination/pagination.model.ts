@@ -3,6 +3,6 @@ import { MeteorologicalEntity } from 'src/app/model/meteorological/meteorologica
 export class Pagination {
   totalRegisters!: number;
   totalPages!: number;
-  atualPage!: number;
+  currentPage!: number;
   data!: MeteorologicalEntity[];
 }

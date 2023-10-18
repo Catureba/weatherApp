@@ -65,3 +65,17 @@
 .delete-icon{
   background-image: url("../../../../assets/trash-icon.png");
 }
+.pagination{
+  display: flex;
+  max-width: 300px;
+  margin: auto;
+  align-items: center;
+  gap: 15px;
+}
+.pagination span{
+  font-size: 24px;
+  font-weight: 600;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
