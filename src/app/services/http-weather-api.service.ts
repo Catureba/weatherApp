@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MeteorologicalEntity } from '../model/meteorological/meteorologicalEntity.model';
 import { MeteorologicalEntityDTO } from '../model/meteorological/meteorologicalDTO.model';
 import { Observable } from 'rxjs/internal/Observable';
+import { Pagination } from '../model/pagination/pagination.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,14 @@ export class HttpWeatherAPIService {
 
   GetAll(): Observable<MeteorologicalEntity[]> {
     return this.http.get<MeteorologicalEntity[]>('https://localhost:7091/api/Meteorological/FindAll')
+  }
+
+  GetRegistersWithPagination(city:string = "", skip:number = 0 ): Observable<Pagination> {
+  var path = `?skip=${skip}`
+  if(city!=""){
+    path += `&city=${city}`
+  }
+    return this.http.get<Pagination>('https://localhost:7091/api/Meteorological/listRegisters' + path)
   }
 
   GetListNextSevenDaysByCity(city:string): Observable<MeteorologicalEntity[]> {
