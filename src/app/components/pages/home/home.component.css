@@ -60,6 +60,7 @@
   width: 90%;
   max-width: 700px;
   flex-wrap: wrap;
+  gap: 36px;
 }
 .register{
   display: flex;
@@ -73,6 +74,7 @@
 .weather-by-register{
   display: flex;
   align-items: center;
+  gap: 17px;
 }
 .temp-by-register{
   display: flex;
