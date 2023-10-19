@@ -6,7 +6,7 @@ import { of } from 'rxjs';
 import { InputFindByCityComponent } from '../../shared/input-find-by-city/input-find-by-city.component';
 import { FormsModule } from '@angular/forms';
 
-fdescribe('HomeComponent', () => {
+describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 

@@ -19,50 +19,34 @@ export class ListPageComponent {
   totalRegisters?: number;
 
   ngOnInit(): void {
-    this.findAll();
+    this.findRegisters();
   }
 
   nextPage() {
     if(this.currentPage < this.totalPages){
       this.page++;
-      this.findByCity(this.registers[0].city);
+      this.findRegisters();
     }
 
   }
   previousPage() {
     if(this.currentPage > 1){
       this.page--;
-      this.findByCity(this.registers[0].city);
+      this.findRegisters();
     }
   }
   newSearch(city: any) {
     this.city = city;
-    this.findByCity(city);
+    this.findRegisters();
   }
 
-  findAll() {
-    this.service.GetRegistersWithPagination(undefined, this.page).subscribe({
+  findRegisters(){
+    this.service.GetRegistersWithPagination(this.city, this.page).subscribe({
       next: (data) => {
         this.registers = data.data;
         this.totalPages = data.totalPages;
         this.totalRegisters = data.totalRegisters;
         this.currentPage = data.currentPage + 1;
-      },
-      error: (error) => {
-        console.log(error);
-        alert(error.error)
-      },
-    });
-  }
-
-  findByCity(city: string) {
-    this.service.GetRegistersWithPagination(city, this.page).subscribe({
-      next: (data) => {
-        this.registers = data.data;
-        this.totalPages = data.totalPages;
-        this.totalRegisters = data.totalRegisters;
-        this.currentPage = data.currentPage + 1;
-        console.table(data)
       },
       error: (error) => {
         console.log(error);
@@ -76,6 +60,7 @@ export class ListPageComponent {
     date = date.replace(/-/g, '/');
     return date;
   }
+
   deleteByID(id: string) {
     this.service.DeleteById(id).subscribe({
       next: (data) => {
