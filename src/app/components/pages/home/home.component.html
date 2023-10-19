@@ -11,7 +11,7 @@
   </div>
   <div class="informations-today">
     <div class="weather">
-      <img src="./../../../assets/cloudy-weather.png" alt="" />
+      <img src="{{'../../../../assets/' + registerToday.weather_day + '-' + dayOrNight + '.png'}}" alt="" />
       <span class="temp-today">
         <h2 class="max-temp">{{ registerToday.max_temperature }}°</h2>
         <span class="separator-temp">/</span>
@@ -42,7 +42,7 @@
         <span>{{ replaceDateCompletToSimpleDate(meteorologicalRegister.date) }}</span>
       </div>
       <div class="weather-by-register">
-        <img src="" alt="" />
+        <img src="{{'../../../../assets/' + meteorologicalRegister.weather_day + '-' + dayOrNight + '.png'}}" alt="" />
         <span>{{ meteorologicalRegister.weather_day }}</span>
       </div>
       <div class="temp-by-register">
